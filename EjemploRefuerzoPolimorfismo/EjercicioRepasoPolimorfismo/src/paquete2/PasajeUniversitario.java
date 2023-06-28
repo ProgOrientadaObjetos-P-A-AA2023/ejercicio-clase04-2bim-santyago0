@@ -10,10 +10,14 @@ package paquete2;
  */
 public class PasajeUniversitario extends PasajeUrbano {
     
-    public PasajeUniversitario(double pasaje){
-        super(pasaje);
+    public PasajeUniversitario(double fijo, Persona p) {
+        super(fijo,p);
     }
     
+    @Override
+    public void establecerValorPasaje() {
+        valorPasaje = valorFijo - (valorFijo * 0.3);
+    }
        
     @Override
     public String toString(){

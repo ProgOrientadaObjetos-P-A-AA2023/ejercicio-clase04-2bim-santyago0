@@ -11,10 +11,14 @@ package paquete2;
  */
 public class PasajeTerceraEdad extends PasajeUrbano {
     
-    public PasajeTerceraEdad(double pasaje){
-        super(pasaje);
+    public PasajeTerceraEdad(double fijo, Persona p) {
+        super(fijo,p);
     }
     
+    @Override
+    public void establecerValorPasaje() {
+        valorPasaje = valorFijo - (valorFijo * 0.5);
+    }
        
     @Override
     public String toString(){

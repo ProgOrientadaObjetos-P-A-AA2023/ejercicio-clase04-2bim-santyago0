@@ -15,7 +15,9 @@ public class Ejecutor2 {
         ArrayList<PasajeUrbano> pasajes = new ArrayList<>();
         String[] nombres = {"Austin", "Monique", "Glen", "Richard", "Patrick"};
         String[] apellidos = {"Martinez", "Lyons", "Kim", "Tate", "Lee"};
-        int[] edad = {9, 70, 35, 23, 10};
+        String[] cedulas = {"1101100110","1011100011","1101011001","1000110011",
+            "1100011100"};
+        int[] edades = {9, 70, 35, 23, 10};
         double pasajeFijo = 0.4;
         
         /*
@@ -37,7 +39,39 @@ public class Ejecutor2 {
         
         */
         // inicio de solución
-        
+        for(int i = 0; i < nombres.length; i++) {
+            String nombre = nombres[i];
+            String apellido = apellidos[i];
+            String cedula = cedulas[i];
+            int edad = edades[i];
+            
+            Persona p = new Persona(nombre,apellido,cedula,edad);
+            
+            if(edad >= 0 && edad <= 18) {
+                PasajeMenorEdad pM = new PasajeMenorEdad(pasajeFijo, p);
+                
+                pasajes.add(pM);
+            }
+            
+            if(edad > 18 && edad <= 25) {
+                PasajeUniversitario pU = new PasajeUniversitario(pasajeFijo,
+                        p);
+                
+                pasajes.add(pU);
+            }
+            
+            if(edad > 25 && edad < 65) {
+                PasajeNormal pN = new PasajeNormal(pasajeFijo, p);
+                
+                pasajes.add(pN);
+            }
+            
+            if(edad >= 65) {
+                PasajeTerceraEdad pT = new PasajeTerceraEdad(pasajeFijo, p);
+                
+                pasajes.add(pT);
+            }
+        }
         
         // fin  de solución
         
